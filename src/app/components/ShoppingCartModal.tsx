@@ -21,7 +21,7 @@ export default function ShoppingCartModal() {
     redirectToCheckout,
   } = useShoppingCart();
 
-  async function handleCheckoutClick(event: any) {
+  async function handleCheckoutClick(event: string) {
     event.preventDefault();
     try {
       const result = await redirectToCheckout();

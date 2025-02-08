@@ -9,7 +9,7 @@ export interface simplifiedProduct {
   
   export interface fullProduct {
     _id: string;
-    images: any;
+    images: string;
     price: number;
     slug: string;
     categoryName: string;
