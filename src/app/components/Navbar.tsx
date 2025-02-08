@@ -9,7 +9,7 @@ import { ModeToggle } from "./ModeToggle";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { links } from "../constants/NavLinks";
-import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton, useUser } from "@clerk/nextjs";
+import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
 import { useShoppingCart } from "use-shopping-cart";
 
 
