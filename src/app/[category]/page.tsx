@@ -3,8 +3,8 @@ import { simplifiedProduct } from "../interface";
 import { client } from "../lib/sanity";
 import Image from "next/image";
 
-async function getData(cateogry: string) {
-  const query = `*[_type == "product" && category->name == "${cateogry}"] {
+async function getData(category: string) {
+  const query = `*[_type == "product" && category->name == "${category}"] {
         _id,
           "imageUrl": images[0].asset->url,
           price,
