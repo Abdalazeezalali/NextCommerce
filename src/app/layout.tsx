@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
+import Navbar from "./components/Navbar";
+import { ThemeProvider } from "@/components/theme-provider";
+import {ClerkProvider} from '@clerk/nextjs'
+import CartProvider from "./components/Providers";
+import ShoppingCartModal from "./components/ShoppingCartModal";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -23,12 +27,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <ClerkProvider>
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      > 
+        <CartProvider>
+         <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+        <Navbar/>
+        <ShoppingCartModal/>
         {children}
+        </ThemeProvider>
+        </CartProvider>
       </body>
     </html>
+    </ClerkProvider>
   );
 }
